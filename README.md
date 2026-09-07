@@ -1,49 +1,43 @@
-#  MedConnect
+# MedConnect
 
 ### Doctor Appointment Platform for University Health Centre
 
-MedConnect is a web-based platform designed to make doctor appointments at a university health centre **simpler, faster, and more organized**.
+MedConnect is a web-based platform designed to make doctor appointments at a university health centre simpler, faster, and more organized.
 
 Instead of waiting in long physical queues or visiting the health centre just to check doctor availability, students can view doctors, check available slots, book an appointment, and receive a digital appointment token.
 
 ---
 
-##  Why MedConnect?
+## Why MedConnect?
 
-The traditional walk-in system can lead to:
+University health centres often rely on walk-in appointments, which can cause long queues, waiting time, and uncertainty about doctor availability.
 
-* Long queues and waiting times
-* Overcrowding during OPD hours
-* Difficulty knowing doctor availability
-* Manual appointment records
-* Duplicate or unorganized bookings
-
-**MedConnect aims to solve these problems through a single digital platform.**
+MedConnect provides a simple digital solution where students can check doctors, view available slots, book appointments, and receive a digital token.
 
 ---
 
-##  Key Features
+## Key Features
 
-###  For Students
+### For Students
 
 * Register and securely log in
 * Browse doctors by medical category
-* View doctor specialization, room number and OPD timings
+* View doctor specialization, room number, and OPD timings
 * Check available and booked time slots
 * Book a 15-minute consultation slot
-* Get a digital appointment/token number
+* Receive a digital appointment token
 * View upcoming and previous appointments
 * Cancel eligible upcoming appointments
 
-###  For Doctors
+### For Doctors
 
-* Manage visiting/working hours
+* Manage visiting and working hours
 * View daily appointment queue
 * View booked appointments
 * Update appointment status
 * Add brief medical remarks
 
-###  For Admin
+### For Admin
 
 * Manage doctor profiles
 * Manage medical categories
@@ -53,9 +47,9 @@ The traditional walk-in system can lead to:
 
 ---
 
-##  How It Works
+## How It Works
 
-
+```text
 Student Login
       ↓
 Select Medical Category
@@ -69,13 +63,13 @@ View Available Slots
 Book Appointment
       ↓
 Digital Token Generated
+```
 
-
-The system also prevents two students from successfully booking the **same doctor, date and time slot**.
+The system also prevents two students from booking the same doctor, date, and time slot.
 
 ---
 
-##  Medical Categories
+## Medical Categories
 
 The proposed platform includes:
 
@@ -92,18 +86,18 @@ The proposed platform includes:
 
 ## Main Modules
 
-| Module              | Purpose                                                |
-| ------------------- | ------------------------------------------------------ |
-| Student Module      | Doctor search, slot booking and appointment management |
-| Doctor Module       | Queue, availability and appointment management         |
-| Admin Module        | Doctor, category and appointment management            |
-| Doctor & Category   | Maintains doctor and specialization details            |
-| Slot Management     | Generates and manages consultation slots               |
-| Appointment & Token | Handles booking and digital token generation           |
+| Module                     | Purpose                                                 |
+| -------------------------- | ------------------------------------------------------- |
+| Student Module             | Doctor search, slot booking, and appointment management |
+| Doctor Module              | Queue, availability, and appointment management         |
+| Admin Module               | Doctor, category, and appointment management            |
+| Doctor & Category Module   | Maintains doctor and specialization details             |
+| Slot Management Module     | Generates and manages consultation slots                |
+| Appointment & Token Module | Handles booking and digital token generation            |
 
 ---
 
-##  Technology Stack
+## Technology Stack
 
 ### Frontend
 
@@ -131,26 +125,24 @@ The proposed platform includes:
 * Postman
 * Browser Developer Tools
 
-The project is planned using the **MERN Stack** — MongoDB, Express.js, React.js and Node.js.
+The project is planned using the MERN Stack — MongoDB, Express.js, React.js, and Node.js.
 
 ---
 
-##  Security & Reliability
+## Security
 
 The system is planned to include:
 
 * Secure user authentication
-* Role-based access for students, doctors and admins
+* Role-based access for students, doctors, and admins
 * Password hashing using bcryptjs
 * JWT-based authentication
 * Input validation
 * Prevention of duplicate appointment bookings
 
+---
 
-
-##  Team
-
-**MedConnect — Mini Project**
+## Team
 
 * Vartika Agnihotri
 * Vaishnavi Maheshwari
@@ -158,20 +150,8 @@ The system is planned to include:
 * Vandana Pathak
 * Rinku
 
-**Under the guidance of:**
-Mr. Akash Kumar Choudhary
-Technical Trainer
+---
 
 
 
 
-##  References
-
-* React Documentation
-* Node.js Documentation
-* Express.js Documentation
-* MongoDB Documentation
-
-
-
-> **MedConnect — Making university healthcare appointments easier, one slot at a time.**
