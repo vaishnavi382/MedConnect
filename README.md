@@ -55,7 +55,7 @@ The traditional walk-in system can lead to:
 
 ##  How It Works
 
-```text
+
 Student Login
       ↓
 Select Medical Category
@@ -69,7 +69,7 @@ View Available Slots
 Book Appointment
       ↓
 Digital Token Generated
-```
+
 
 The system also prevents two students from successfully booking the **same doctor, date and time slot**.
 
