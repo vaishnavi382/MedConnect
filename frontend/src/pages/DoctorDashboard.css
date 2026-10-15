@@ -616,3 +616,98 @@
     transition-duration: 0.01ms !important;
   }
 }
+
+
+/* Appointment tokens and patient details */
+
+.token-number {
+  display: inline-block;
+  margin-top: 5px;
+  color: #0f8e91 !important;
+  font-weight: 700;
+}
+
+.dashboard-message {
+  margin: 0 0 15px;
+  padding: 10px 13px;
+  border-radius: 8px;
+  background: #e7f7ef;
+  color: #147347;
+  font-size: 12px;
+}
+
+.patient-details {
+  margin: 0 0 18px;
+  padding: 20px;
+  border: 1px solid #e1ebf5;
+  border-radius: 12px;
+  background: #f8fbff;
+}
+
+.patient-details h3 {
+  margin: 0 0 15px;
+  color: #17324d;
+  font-size: 16px;
+}
+
+.patient-details p {
+  margin: 8px 0;
+  color: #64778c;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.patient-details label {
+  display: block;
+  margin: 17px 0 7px;
+  color: #17324d;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.patient-details select,
+.patient-details textarea {
+  display: block;
+  width: 100%;
+  padding: 11px 12px;
+  border: 1px solid #dbe6f1;
+  border-radius: 8px;
+  background: #fff;
+  color: #17324d;
+  font: inherit;
+  font-size: 13px;
+}
+
+.patient-details textarea {
+  resize: vertical;
+}
+
+.patient-details select:focus,
+.patient-details textarea:focus {
+  border-color: #1675e8;
+  outline: 2px solid #1675e81c;
+}
+
+.patient-details .profile-button {
+  margin-top: 13px;
+  background: #1675e8;
+  color: #fff;
+}
+
+.patient-details .profile-button:hover {
+  background: #105bb5;
+}
+
+.saved-remarks {
+  margin-top: 14px !important;
+  padding: 11px;
+  border-radius: 8px;
+  background: #e7f7ef;
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 700px) {
+  .patient-details {
+    padding: 15px;
+  }
+}
