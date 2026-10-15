@@ -711,3 +711,30 @@
     padding: 15px;
   }
 }
+.appointment-filters {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.appointment-filters input,
+.appointment-filters select {
+  min-width: 0;
+  padding: 11px 12px;
+  border: 1px solid #dbe6f1;
+  border-radius: 8px;
+  background: #fff;
+  color: #17324d;
+  font: inherit;
+  font-size: 12px;
+}
+
+.appointment-filters input {
+  flex: 1;
+}
+
+@media (max-width: 480px) {
+  .appointment-filters {
+    flex-direction: column;
+  }
+}

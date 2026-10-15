@@ -1,0 +1,172 @@
+.doctor-login-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #eaf5ff, #f7fbff 55%, #e5f8f5);
+  color: #17324d;
+}
+
+.login-navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 22px 7%;
+  background: #fff;
+  border-bottom: 1px solid #e2ebf4;
+}
+
+.login-brand {
+  color: #17324d;
+  font-size: 25px;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.login-brand span {
+  color: #1675e8;
+}
+
+.back-home-link {
+  color: #1675e8;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.login-content {
+  min-height: calc(100vh - 85px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 35px 20px;
+}
+
+.login-card {
+  width: 100%;
+  max-width: 440px;
+  padding: 38px;
+  background: #fff;
+  border: 1px solid #e0eaf4;
+  border-radius: 20px;
+  box-shadow: 0 18px 50px rgba(23, 50, 77, 0.09);
+}
+
+.login-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 55px;
+  height: 55px;
+  margin-bottom: 24px;
+  border-radius: 15px;
+  background: #eaf5ff;
+  color: #1675e8;
+  font-size: 30px;
+}
+
+.login-eyebrow {
+  color: #0f9d9a;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.4px;
+}
+
+.login-card h1 {
+  margin: 10px 0;
+  font-size: 30px;
+  color: #17324d;
+}
+
+.login-subtitle {
+  margin-bottom: 27px;
+  color: #6b7e91;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.login-card form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.login-card label {
+  margin-top: 8px;
+  color: #263f58;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.login-card input {
+  width: 100%;
+  min-width: 0;
+  padding: 13px 14px;
+  border: 1px solid #d8e3ee;
+  border-radius: 9px;
+  outline: none;
+  background: #fff;
+  color: #17324d;
+  font: inherit;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+.login-card input:focus {
+  border-color: #1675e8;
+  box-shadow: 0 0 0 3px rgba(22, 117, 232, 0.1);
+}
+
+.password-field {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.password-toggle {
+  padding: 10px;
+  border: none;
+  background: transparent;
+  color: #1675e8;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.doctor-login-button {
+  margin-top: 16px;
+  padding: 14px;
+  border: none;
+  border-radius: 9px;
+  background: #1675e8;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.doctor-login-button:hover {
+  background: #105fc0;
+}
+
+.login-demo-note {
+  margin-top: 20px;
+  color: #718398;
+  font-size: 12px;
+  text-align: center;
+}
+
+@media (max-width: 480px) {
+  .login-navbar {
+    padding: 18px;
+  }
+
+  .login-brand {
+    font-size: 21px;
+  }
+
+  .login-card {
+    padding: 26px 21px;
+  }
+
+  .login-card h1 {
+    font-size: 26px;
+  }
+}

@@ -1099,3 +1099,24 @@ h4 {
     animation-duration: 0.01ms !important;
   }
 }
+.doctor-login-link {
+  color: #1675e8;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 11px 14px;
+  border: 1px solid #d5e6f8;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.doctor-login-link:hover {
+  background: #eaf5ff;
+  border-color: #1675e8;
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}

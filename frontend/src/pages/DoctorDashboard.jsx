@@ -42,6 +42,9 @@ function DoctorDashboard() {
   const [remarks, setRemarks] = useState({});
   const [savedRemarks, setSavedRemarks] = useState({});
   const [message, setMessage] = useState('');
+  const [searchTerm, setSearchTerm] = useState('');
+  const [statusFilter, setStatusFilter] = useState('All');
+  const [showProfile, setShowProfile] = useState(false);
 
   const completedAppointments = appointments.filter(
     (appointment) => appointment.status === 'Completed'
@@ -52,6 +55,17 @@ function DoctorDashboard() {
       appointment.status !== 'Completed' &&
       appointment.status !== 'Cancelled'
   ).length;
+
+  const filteredAppointments = appointments.filter((appointment) => {
+    const matchesSearch = `${appointment.patient} ${appointment.token} ${appointment.type}`
+      .toLowerCase()
+      .includes(searchTerm.toLowerCase());
+
+    const matchesStatus =
+      statusFilter === 'All' || appointment.status === statusFilter;
+
+    return matchesSearch && matchesStatus;
+  });
 
   function updateStatus(id, newStatus) {
     setAppointments((currentAppointments) =>
@@ -68,7 +82,7 @@ function DoctorDashboard() {
   function saveRemarks(id) {
     setSavedRemarks((currentRemarks) => ({
       ...currentRemarks,
-      [id]: remarks[id] || '',
+      [id]: remarks[id] ?? '',
     }));
 
     setMessage('Medical remarks saved for this session.');
@@ -91,15 +105,19 @@ function DoctorDashboard() {
         <a className="sidebar-link active" href="#dashboard">
           ▦ Dashboard
         </a>
+
         <a className="sidebar-link" href="#appointments">
           ▣ Appointments
         </a>
+
         <a className="sidebar-link" href="#patients">
           ♙ Patients
         </a>
+
         <a className="sidebar-link" href="#availability">
           ◷ Availability
         </a>
+
         <a className="sidebar-link" href="#profile">
           ⚙ My Profile
         </a>
@@ -122,12 +140,32 @@ function DoctorDashboard() {
           </div>
 
           <button
+            type="button"
             className="profile-button"
-            onClick={() => togglePatientDetails('profile')}
+            onClick={() => setShowProfile((current) => !current)}
           >
-            My Profile
+            {showProfile ? 'Close Profile' : 'My Profile'}
           </button>
         </header>
+
+        {showProfile && (
+          <section className="patient-details">
+            <h2>Doctor Profile</h2>
+            <p>
+              <strong>Name:</strong> Dr. Ananya Sharma
+            </p>
+            <p>
+              <strong>Specialization:</strong> Cardiologist
+            </p>
+            <p>
+              <strong>Workplace:</strong> University Medical Centre
+            </p>
+            <p>
+              <strong>Availability:</strong>{' '}
+              {available ? 'Available' : 'Unavailable'}
+            </p>
+          </section>
+        )}
 
         <section className="dashboard-stats">
           <div className="stat-card">
@@ -160,6 +198,28 @@ function DoctorDashboard() {
             </div>
           </div>
 
+          <div className="appointment-filters">
+            <input
+              type="search"
+              placeholder="Search patient or token..."
+              aria-label="Search appointments"
+              value={searchTerm}
+              onChange={(event) => setSearchTerm(event.target.value)}
+            />
+
+            <select
+              aria-label="Filter appointments by status"
+              value={statusFilter}
+              onChange={(event) => setStatusFilter(event.target.value)}
+            >
+              <option value="All">All Statuses</option>
+              <option value="Pending">Pending</option>
+              <option value="Confirmed">Confirmed</option>
+              <option value="Completed">Completed</option>
+              <option value="Cancelled">Cancelled</option>
+            </select>
+          </div>
+
           {message && (
             <p className="dashboard-message" role="status">
               {message}
@@ -167,7 +227,7 @@ function DoctorDashboard() {
           )}
 
           <div className="appointment-list">
-            {appointments.map((appointment) => (
+            {filteredAppointments.map((appointment) => (
               <div key={appointment.id}>
                 <div className="appointment-row">
                   <div className="patient-avatar">
@@ -193,12 +253,11 @@ function DoctorDashboard() {
                   </span>
 
                   <button
+                    type="button"
                     className="details-button"
                     onClick={() => togglePatientDetails(appointment.id)}
                   >
-                    {selectedPatient === appointment.id
-                      ? 'Close'
-                      : 'Details'}
+                    {selectedPatient === appointment.id ? 'Close' : 'Details'}
                   </button>
                 </div>
 
@@ -209,12 +268,15 @@ function DoctorDashboard() {
                     <p>
                       <strong>Patient:</strong> {appointment.patient}
                     </p>
+
                     <p>
                       <strong>Token:</strong> {appointment.token}
                     </p>
+
                     <p>
                       <strong>Visit type:</strong> {appointment.type}
                     </p>
+
                     <p>
                       <strong>Appointment time:</strong> {appointment.time}
                     </p>
@@ -245,15 +307,16 @@ function DoctorDashboard() {
                       rows={3}
                       placeholder="Enter relevant consultation remarks..."
                       value={remarks[appointment.id] ?? appointment.remarks}
-                      onChange={(event) => {
+                      onChange={(event) =>
                         setRemarks((currentRemarks) => ({
                           ...currentRemarks,
                           [appointment.id]: event.target.value,
-                        }));
-                      }}
+                        }))
+                      }
                     />
 
                     <button
+                      type="button"
                       className="profile-button"
                       onClick={() => saveRemarks(appointment.id)}
                     >
@@ -270,6 +333,12 @@ function DoctorDashboard() {
                 )}
               </div>
             ))}
+
+            {filteredAppointments.length === 0 && (
+              <p className="dashboard-message">
+                No appointments match your search.
+              </p>
+            )}
           </div>
         </section>
 
@@ -283,6 +352,7 @@ function DoctorDashboard() {
           </div>
 
           <button
+            type="button"
             className={`availability-button ${
               available ? '' : 'unavailable'
             }`}
