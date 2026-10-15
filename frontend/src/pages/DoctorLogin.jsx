@@ -1,3 +1,4 @@
+
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import './DoctorLogin.css';
@@ -12,8 +13,36 @@ function DoctorLogin() {
   function handleLogin(event) {
     event.preventDefault();
 
-    // Frontend demo only; real authentication will use the backend.
-    navigate('/doctor-dashboard');
+    // Temporary demo login.
+    // Later, this will connect to the backend API.
+    const demoDoctors = [
+      {
+        email: 'ananya@medconnect.com',
+        password: 'ananya123',
+        name: 'Dr. Ananya Sharma',
+        specialty: 'Cardiologist',
+      },
+      {
+        email: 'rahul@medconnect.com',
+        password: 'rahul123',
+        name: 'Dr. Rahul Verma',
+        specialty: 'Dermatologist',
+      },
+    ];
+
+    const doctor = demoDoctors.find(
+      (item) =>
+        item.email === email.trim().toLowerCase() &&
+        item.password === password
+    );
+
+    if (doctor) {
+      navigate('/doctor-dashboard', {
+        state: { doctor },
+      });
+    } else {
+      alert('Invalid email or password. Please try again.');
+    }
   }
 
   return (
@@ -32,14 +61,21 @@ function DoctorLogin() {
         <section className="login-card">
           <div className="login-icon">✚</div>
 
-          <p className="login-eyebrow">UNIVERSITY MEDICAL CENTRE</p>
+          <p className="login-eyebrow">
+            UNIVERSITY MEDICAL CENTRE
+          </p>
+
           <h1>Doctor Login</h1>
+
           <p className="login-subtitle">
             Sign in to manage your appointments and patient queue.
           </p>
 
           <form onSubmit={handleLogin}>
-            <label htmlFor="doctor-email">Email Address</label>
+            <label htmlFor="doctor-email">
+              Email Address
+            </label>
+
             <input
               id="doctor-email"
               type="email"
@@ -49,7 +85,10 @@ function DoctorLogin() {
               required
             />
 
-            <label htmlFor="doctor-password">Password</label>
+            <label htmlFor="doctor-password">
+              Password
+            </label>
+
             <div className="password-field">
               <input
                 id="doctor-password"
@@ -63,19 +102,24 @@ function DoctorLogin() {
               <button
                 type="button"
                 className="password-toggle"
-                onClick={() => setShowPassword((current) => !current)}
+                onClick={() =>
+                  setShowPassword((current) => !current)
+                }
               >
                 {showPassword ? 'Hide' : 'Show'}
               </button>
             </div>
 
-            <button type="submit" className="doctor-login-button">
+            <button
+              type="submit"
+              className="doctor-login-button"
+            >
               Login to Dashboard →
             </button>
           </form>
 
           <p className="login-demo-note">
-            Demo mode: credentials are not verified yet.
+            Demo mode: credentials are not verified by a server.
           </p>
         </section>
       </main>

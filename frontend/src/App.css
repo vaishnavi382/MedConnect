@@ -1065,10 +1065,26 @@ h4 {
     gap: 17px;
   }
 
-  .doctor-profile {
+  /* .doctor-profile {
     min-height: 120px;
-  }
+  } */
 
+  .doctor-profile {
+  width: 100%;
+  height: 190px;
+  min-height: 190px;
+  overflow: hidden;
+  border-radius: 16px;
+  margin-bottom: 18px;
+}
+
+.doctor-profile img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 25%;
+  display: block;
+}
   .doctor-info {
     padding: 19px;
   }
@@ -1119,4 +1135,20 @@ h4 {
   display: flex;
   align-items: center;
   gap: 12px;
+}
+
+.doctor-profile {
+  width: 100%;
+  height: 190px;
+  overflow: hidden;
+  border-radius: 16px;
+  margin-bottom: 18px;
+}
+
+.doctor-profile img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 25%;
+  display: block;
 }

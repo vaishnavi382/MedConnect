@@ -5,17 +5,96 @@ import DoctorDashboard from './pages/DoctorDashboard.jsx';
 import DoctorLogin from './pages/DoctorLogin.jsx';
 import './App.css';
 
+
 const doctors = [
-  { name: 'Dr. Ananya Sharma', specialty: 'Cardiologist', experience: '8 years experience', days: 'Monday – Friday', hours: '09:00 AM – 01:00 PM', initials: 'AS' },
-  { name: 'Dr. Rahul Verma', specialty: 'Dermatologist', experience: '6 years experience', days: 'Monday – Friday', hours: '10:00 AM – 02:00 PM', initials: 'RV' },
-  { name: 'Dr. Priya Singh', specialty: 'Neurologist', experience: '10 years experience', days: 'Monday – Friday', hours: '09:30 AM – 01:30 PM', initials: 'PS' },
-  { name: 'Dr. Arjun Mehta', specialty: 'Orthopedic', experience: '9 years experience', days: 'Monday – Saturday', hours: '10:00 AM – 01:00 PM', initials: 'AM' },
-  { name: 'Dr. Neha Kapoor', specialty: 'Pediatrician', experience: '7 years experience', days: 'Monday – Friday', hours: '09:00 AM – 12:00 PM', initials: 'NK' },
-  { name: 'Dr. Karan Malhotra', specialty: 'General Physician', experience: '12 years experience', days: 'Monday – Saturday', hours: '11:00 AM – 02:00 PM', initials: 'KM' },
-  { name: 'Dr. Meera Joshi', specialty: 'Gynecologist', experience: '8 years experience', days: 'Monday – Friday', hours: '10:00 AM – 01:00 PM', initials: 'MJ' },
-  { name: 'Dr. Aditya Rao', specialty: 'ENT Specialist', experience: '5 years experience', days: 'Tuesday – Saturday', hours: '02:00 PM – 05:00 PM', initials: 'AR' },
-  { name: 'Dr. Simran Kaur', specialty: 'Ophthalmologist', experience: '6 years experience', days: 'Monday – Friday', hours: '09:00 AM – 12:00 PM', initials: 'SK' },
+  {
+    name: 'Dr. Ananya Sharma',
+    specialty: 'Cardiologist',
+    experience: '8 years experience',
+    days: 'Monday - Friday',
+    hours: '09:00 AM - 01:00 PM',
+    initials: 'AS',
+    photo: '/1f.jpg'
+  },
+  {
+    name: 'Dr. Rahul Verma',
+    specialty: 'Dermatologist',
+    experience: '6 years experience',
+    days: 'Monday – Friday',
+    hours: '10:00 AM – 02:00 PM',
+    initials: 'RV',
+    photo: '/1.jpg'
+  
+  },
+  {
+    name: 'Dr. Priya Singh',
+    specialty: 'Neurologist',
+    experience: '10 years experience',
+    days: 'Monday – Friday',
+    hours: '09:30 AM – 01:30 PM',
+    initials: 'PS',
+    photo: '/2f.png'
+    
+  },
+  {
+    name: 'Dr. Arjun Mehta',
+    specialty: 'Orthopedic',
+    experience: '9 years experience',
+    days: 'Monday – Saturday',
+    hours: '10:00 AM – 01:00 PM',
+    initials: 'AM',
+    photo: '/2.jpg'
+    
+  },
+  {
+    name: 'Dr. Neha Kapoor',
+    specialty: 'Pediatrician',
+    experience: '7 years experience',
+    days: 'Monday – Friday',
+    hours: '09:00 AM – 12:00 PM',
+    initials: 'NK',
+    photo: '/3f.jpg'
+    
+  },
+  {
+    name: 'Dr. Karan Malhotra',
+    specialty: 'General Physician',
+    experience: '12 years experience',
+    days: 'Monday – Saturday',
+    hours: '11:00 AM – 02:00 PM',
+    initials: 'KM',
+    photo: '/3.jpg'
+    
+  },
+  {
+    name: 'Dr. Meera Joshi',
+    specialty: 'Gynecologist',
+    experience: '8 years experience',
+    days: 'Monday – Friday',
+    hours: '10:00 AM – 01:00 PM',
+    initials: 'MJ',
+    photo: '/4f.jpg'
+  },
+  {
+    name: 'Dr. Aditya Rao',
+    specialty: 'ENT Specialist',
+    experience: '5 years experience',
+    days: 'Tuesday – Saturday',
+    hours: '02:00 PM – 05:00 PM',
+    initials: 'AR',
+    photo: '/4.jpg'
+  },
+  {
+    name: 'Dr. Simran Kaur',
+    specialty: 'Ophthalmologist',
+    experience: '6 years experience',
+    days: 'Monday – Friday',
+    hours: '09:00 AM – 12:00 PM',
+    initials: 'SK',
+    photo: '/5f.jpg'
+  },
 ];
+
 
 const staff = [
   { name: 'Medical Officers', role: 'Patient consultations and clinical care', icon: '✚' },
@@ -38,10 +117,15 @@ function HomePage() {
   return (
     <div className="app" id="home">
       <nav className="navbar">
-        <a className="logo" href="#home">
-          <span className="logo-icon">✚</span>
-          <span>MedConnect<small>PEOPLE · HEALTH · TOGETHER</small></span>
-        </a>
+        
+<a className="logo" href="#home">
+  <span className="logo-icon">✚</span>
+  <span>
+    GLA University
+    <small>UNIVERSITY MEDICAL CENTRE</small>
+  </span>
+</a>
+
 
         <div className="nav-links">
           <a href="#home">Home</a>
@@ -126,14 +210,14 @@ function HomePage() {
             {filteredDoctors.map((doctor, index) => (
               <article className="doctor-card" key={doctor.name}>
                 <div className={`doctor-profile avatar-${index % 3}`}>
-                  <span>{doctor.initials}</span>
-                </div>
+  <img src={doctor.photo} alt={doctor.name} />
+</div>
 
                 <div className="doctor-info">
                   <span className="specialty">{doctor.specialty}</span>
                   <h3>{doctor.name}</h3>
                   <p>{doctor.experience}</p>
-                  <span className="availability"><i /> Schedule listed</span>
+                  
                 </div>
 
                 <div className="consultation-hours">
@@ -142,12 +226,7 @@ function HomePage() {
                   <div><span>Sunday</span><strong className="closed">Closed</strong></div>
                 </div>
 
-                <button
-                  className="book-btn"
-                  onClick={() => alert(`Appointment booking for ${doctor.name} will be connected next.`)}
-                >
-                  View Profile <span>→</span>
-                </button>
+                
               </article>
             ))}
           </div>

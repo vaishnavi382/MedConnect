@@ -1,4 +1,5 @@
 
+import { useLocation, Link } from 'react-router-dom';
 import { useState } from 'react';
 import './DoctorDashboard.css';
 
@@ -36,6 +37,13 @@ const initialAppointments = [
 ];
 
 function DoctorDashboard() {
+  const location = useLocation();
+  const doctor = location.state?.doctor;
+
+  const doctorName = doctor?.name || 'Doctor';
+  const doctorSpecialty =
+    doctor?.specialty || 'Medical Specialist';
+
   const [appointments, setAppointments] = useState(initialAppointments);
   const [available, setAvailable] = useState(true);
   const [selectedPatient, setSelectedPatient] = useState(null);
@@ -62,7 +70,8 @@ function DoctorDashboard() {
       .includes(searchTerm.toLowerCase());
 
     const matchesStatus =
-      statusFilter === 'All' || appointment.status === statusFilter;
+      statusFilter === 'All' ||
+      appointment.status === statusFilter;
 
     return matchesSearch && matchesStatus;
   });
@@ -89,7 +98,9 @@ function DoctorDashboard() {
   }
 
   function togglePatientDetails(id) {
-    setSelectedPatient((currentId) => (currentId === id ? null : id));
+    setSelectedPatient((currentId) =>
+      currentId === id ? null : id
+    );
     setMessage('');
   }
 
@@ -118,25 +129,39 @@ function DoctorDashboard() {
           ◷ Availability
         </a>
 
-        <a className="sidebar-link" href="#profile">
+        <button
+          type="button"
+          className="sidebar-link"
+          onClick={() => setShowProfile((current) => !current)}
+        >
           ⚙ My Profile
-        </a>
+        </button>
 
         <div className="sidebar-doctor" id="profile">
           <div className="doctor-avatar">DR</div>
           <div>
-            <strong>Dr. Ananya Sharma</strong>
-            <small>Cardiologist</small>
+            <strong>{doctorName}</strong>
+            <small>{doctorSpecialty}</small>
           </div>
         </div>
+
+        <Link to="/" className="sidebar-link">
+          ← Back to Home
+        </Link>
       </aside>
 
       <main className="doctor-main" id="dashboard">
         <header className="dashboard-header">
           <div>
-            <p className="dashboard-date">UNIVERSITY MEDICAL CENTRE</p>
-            <h1>Good morning, Dr. Ananya 👋</h1>
-            <p>Manage your appointments and daily patient queue.</p>
+            <p className="dashboard-date">
+              UNIVERSITY MEDICAL CENTRE
+            </p>
+
+            <h1>Welcome, {doctorName} 👋</h1>
+
+            <p>
+              Manage your appointments and daily patient queue.
+            </p>
           </div>
 
           <button
@@ -149,17 +174,21 @@ function DoctorDashboard() {
         </header>
 
         {showProfile && (
-          <section className="patient-details">
+          <section className="patient-details" id="profile-details">
             <h2>Doctor Profile</h2>
+
             <p>
-              <strong>Name:</strong> Dr. Ananya Sharma
+              <strong>Name:</strong> {doctorName}
             </p>
+
             <p>
-              <strong>Specialization:</strong> Cardiologist
+              <strong>Specialization:</strong> {doctorSpecialty}
             </p>
+
             <p>
               <strong>Workplace:</strong> University Medical Centre
             </p>
+
             <p>
               <strong>Availability:</strong>{' '}
               {available ? 'Available' : 'Unavailable'}
@@ -194,7 +223,9 @@ function DoctorDashboard() {
           <div className="panel-heading">
             <div>
               <h2>Today's Appointment Queue</h2>
-              <p>Review patient visits and update appointment status.</p>
+              <p>
+                Review patient visits and update appointment status.
+              </p>
             </div>
           </div>
 
@@ -255,9 +286,13 @@ function DoctorDashboard() {
                   <button
                     type="button"
                     className="details-button"
-                    onClick={() => togglePatientDetails(appointment.id)}
+                    onClick={() =>
+                      togglePatientDetails(appointment.id)
+                    }
                   >
-                    {selectedPatient === appointment.id ? 'Close' : 'Details'}
+                    {selectedPatient === appointment.id
+                      ? 'Close'
+                      : 'Details'}
                   </button>
                 </div>
 
@@ -278,7 +313,8 @@ function DoctorDashboard() {
                     </p>
 
                     <p>
-                      <strong>Appointment time:</strong> {appointment.time}
+                      <strong>Appointment time:</strong>{' '}
+                      {appointment.time}
                     </p>
 
                     <label htmlFor={`status-${appointment.id}`}>
@@ -289,7 +325,10 @@ function DoctorDashboard() {
                       id={`status-${appointment.id}`}
                       value={appointment.status}
                       onChange={(event) =>
-                        updateStatus(appointment.id, event.target.value)
+                        updateStatus(
+                          appointment.id,
+                          event.target.value
+                        )
                       }
                     >
                       <option value="Pending">Pending</option>
@@ -306,7 +345,10 @@ function DoctorDashboard() {
                       id={`remarks-${appointment.id}`}
                       rows={3}
                       placeholder="Enter relevant consultation remarks..."
-                      value={remarks[appointment.id] ?? appointment.remarks}
+                      value={
+                        remarks[appointment.id] ??
+                        appointment.remarks
+                      }
                       onChange={(event) =>
                         setRemarks((currentRemarks) => ({
                           ...currentRemarks,
@@ -326,7 +368,8 @@ function DoctorDashboard() {
                     {savedRemarks[appointment.id] !== undefined && (
                       <p className="saved-remarks">
                         <strong>Saved remarks:</strong>{' '}
-                        {savedRemarks[appointment.id] || 'No remarks added.'}
+                        {savedRemarks[appointment.id] ||
+                          'No remarks added.'}
                       </p>
                     )}
                   </div>
