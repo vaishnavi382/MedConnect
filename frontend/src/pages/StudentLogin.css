@@ -166,3 +166,19 @@
     font-size: 22px;
   }
 }
+.student-login-page .register-account-note {
+  margin-top: 18px;
+  text-align: center;
+  color: #718096;
+  font-size: 14px;
+}
+
+.student-login-page .register-account-note a {
+  color: #0786a8;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.student-login-page .register-account-note a:hover {
+  text-decoration: underline;
+}

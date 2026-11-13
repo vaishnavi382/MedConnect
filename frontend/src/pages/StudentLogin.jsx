@@ -115,6 +115,10 @@ function StudentLogin() {
             <br />
             Demo Password: student123
           </p>
+          <p className="register-account-note">
+  Don't have an account?{' '}
+  <Link to="/student-register">Register here</Link>
+</p>
 
         </section>
       </main>

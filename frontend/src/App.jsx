@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import DoctorDashboard from './pages/DoctorDashboard.jsx';
 import DoctorLogin from './pages/DoctorLogin.jsx';
 import StudentLogin from './pages/StudentLogin.jsx';
+import StudentRegister from './pages/StudentRegister.jsx';
 import './App.css';
 
 
@@ -315,6 +316,7 @@ function App() {
   <Route path="/doctor-dashboard" element={<DoctorDashboard />} />
 
   <Route path="/doctor-login" element={<DoctorLogin />} />
+  <Route path="/student-register" element={<StudentRegister />} />
 </Routes>
     </BrowserRouter>
   );
