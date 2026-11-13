@@ -1,0 +1,168 @@
+
+.student-login-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #eaf6ff, #f4fbff);
+  font-family: Arial, sans-serif;
+}
+
+.student-login-page .login-navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 7%;
+  background: white;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+}
+
+.student-login-page .login-brand {
+  font-size: 26px;
+  font-weight: bold;
+  color: #123b63;
+  text-decoration: none;
+}
+
+.student-login-page .login-brand span {
+  color: #159bba;
+}
+
+.student-login-page .back-home-link {
+  color: #176b91;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.student-login-page .login-content {
+  min-height: calc(100vh - 75px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 35px 20px;
+}
+
+.student-login-page .login-card {
+  width: 100%;
+  max-width: 430px;
+  background: white;
+  padding: 38px;
+  border-radius: 18px;
+  box-shadow: 0 12px 35px rgba(30, 90, 130, 0.12);
+}
+
+.student-login-page .login-icon {
+  width: 55px;
+  height: 55px;
+  background: #e1f5fa;
+  color: #0786a8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  font-size: 28px;
+  margin: 0 auto 18px;
+}
+
+.student-login-page .login-eyebrow {
+  text-align: center;
+  color: #1593ad;
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 1.5px;
+}
+
+.student-login-page h1 {
+  text-align: center;
+  color: #173b5c;
+  margin: 12px 0;
+  font-size: 29px;
+}
+
+.student-login-page .login-subtitle {
+  text-align: center;
+  color: #718096;
+  font-size: 14px;
+  line-height: 1.6;
+  margin-bottom: 28px;
+}
+
+.student-login-page form label {
+  display: block;
+  margin: 16px 0 8px;
+  color: #28445e;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.student-login-page form input {
+  width: 100%;
+  padding: 13px;
+  border: 1px solid #d5e2ec;
+  border-radius: 8px;
+  outline: none;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+.student-login-page form input:focus {
+  border-color: #159bba;
+  box-shadow: 0 0 0 3px rgba(21, 155, 186, 0.12);
+}
+
+.student-login-page .password-field {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.student-login-page .password-field input {
+  padding-right: 65px;
+}
+
+.student-login-page .password-toggle {
+  position: absolute;
+  right: 12px;
+  border: none;
+  background: transparent;
+  color: #0786a8;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.student-login-page .student-login-button {
+  width: 100%;
+  margin-top: 25px;
+  padding: 14px;
+  background: #087fa5;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.student-login-page .student-login-button:hover {
+  background: #056582;
+}
+
+.student-login-page .login-demo-note {
+  margin-top: 22px;
+  text-align: center;
+  color: #718096;
+  font-size: 12px;
+  line-height: 1.8;
+}
+
+@media (max-width: 480px) {
+  .student-login-page .login-card {
+    padding: 25px 20px;
+  }
+
+  .student-login-page .login-navbar {
+    padding: 16px 5%;
+  }
+
+  .student-login-page .login-brand {
+    font-size: 22px;
+  }
+}

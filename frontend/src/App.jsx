@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import DoctorDashboard from './pages/DoctorDashboard.jsx';
 import DoctorLogin from './pages/DoctorLogin.jsx';
+import StudentLogin from './pages/StudentLogin.jsx';
 import './App.css';
 
 
@@ -136,6 +137,11 @@ function HomePage() {
 
         
 <div className="nav-actions">
+
+  <Link className="doctor-login-link" to="/student-login">
+    Student Login
+  </Link>
+
   <Link className="doctor-login-link" to="/doctor-login">
     Doctor Login
   </Link>
@@ -143,6 +149,7 @@ function HomePage() {
   <a className="primary-btn" href="#doctors">
     Book an Appointment
   </a>
+
 </div>
 
       </nav>
@@ -301,10 +308,14 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/doctor-dashboard" element={<DoctorDashboard />} />
-        <Route path="/doctor-login" element={<DoctorLogin />} />
-      </Routes>
+  <Route path="/" element={<HomePage />} />
+
+  <Route path="/student-login" element={<StudentLogin />} />
+
+  <Route path="/doctor-dashboard" element={<DoctorDashboard />} />
+
+  <Route path="/doctor-login" element={<DoctorLogin />} />
+</Routes>
     </BrowserRouter>
   );
 }
