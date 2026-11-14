@@ -6,6 +6,7 @@ import DoctorLogin from './pages/DoctorLogin.jsx';
 import StudentLogin from './pages/StudentLogin.jsx';
 import StudentRegister from './pages/StudentRegister.jsx';
 import StudentDashboard from './pages/StudentDashboard.jsx';
+import DoctorSelection from './pages/DoctorSelection.jsx';
 import './App.css';
 
 
@@ -27,7 +28,7 @@ const doctors = [
     hours: '10:00 AM – 02:00 PM',
     initials: 'RV',
     photo: '/1.jpg'
-  
+
   },
   {
     name: 'Dr. Priya Singh',
@@ -37,7 +38,7 @@ const doctors = [
     hours: '09:30 AM – 01:30 PM',
     initials: 'PS',
     photo: '/2f.png'
-    
+
   },
   {
     name: 'Dr. Arjun Mehta',
@@ -47,7 +48,7 @@ const doctors = [
     hours: '10:00 AM – 01:00 PM',
     initials: 'AM',
     photo: '/2.jpg'
-    
+
   },
   {
     name: 'Dr. Neha Kapoor',
@@ -57,7 +58,7 @@ const doctors = [
     hours: '09:00 AM – 12:00 PM',
     initials: 'NK',
     photo: '/3f.jpg'
-    
+
   },
   {
     name: 'Dr. Karan Malhotra',
@@ -67,7 +68,7 @@ const doctors = [
     hours: '11:00 AM – 02:00 PM',
     initials: 'KM',
     photo: '/3.jpg'
-    
+
   },
   {
     name: 'Dr. Meera Joshi',
@@ -120,14 +121,14 @@ function HomePage() {
   return (
     <div className="app" id="home">
       <nav className="navbar">
-        
-<a className="logo" href="#home">
-  <span className="logo-icon">✚</span>
-  <span>
-    GLA University
-    <small>UNIVERSITY MEDICAL CENTRE</small>
-  </span>
-</a>
+
+        <a className="logo" href="#home">
+          <span className="logo-icon">✚</span>
+          <span>
+            GLA University
+            <small>UNIVERSITY MEDICAL CENTRE</small>
+          </span>
+        </a>
 
 
         <div className="nav-links">
@@ -137,22 +138,22 @@ function HomePage() {
           <a href="#contact">Contact</a>
         </div>
 
-        
-<div className="nav-actions">
 
-  <Link className="doctor-login-link" to="/student-login">
-    Student Login
-  </Link>
+        <div className="nav-actions">
 
-  <Link className="doctor-login-link" to="/doctor-login">
-    Doctor Login
-  </Link>
+          <Link className="doctor-login-link" to="/student-login">
+            Student Login
+          </Link>
 
-  <a className="primary-btn" href="#doctors">
-    Book an Appointment
-  </a>
+          <Link className="doctor-login-link" to="/doctor-login">
+            Doctor Login
+          </Link>
 
-</div>
+          <a className="primary-btn" href="#doctors">
+            Book an Appointment
+          </a>
+
+        </div>
 
       </nav>
 
@@ -219,14 +220,14 @@ function HomePage() {
             {filteredDoctors.map((doctor, index) => (
               <article className="doctor-card" key={doctor.name}>
                 <div className={`doctor-profile avatar-${index % 3}`}>
-  <img src={doctor.photo} alt={doctor.name} />
-</div>
+                  <img src={doctor.photo} alt={doctor.name} />
+                </div>
 
                 <div className="doctor-info">
                   <span className="specialty">{doctor.specialty}</span>
                   <h3>{doctor.name}</h3>
                   <p>{doctor.experience}</p>
-                  
+
                 </div>
 
                 <div className="consultation-hours">
@@ -235,7 +236,7 @@ function HomePage() {
                   <div><span>Sunday</span><strong className="closed">Closed</strong></div>
                 </div>
 
-                
+
               </article>
             ))}
           </div>
@@ -310,19 +311,23 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-  <Route path="/" element={<HomePage />} />
+        <Route path="/" element={<HomePage />} />
 
-  <Route path="/student-login" element={<StudentLogin />} />
+        <Route path="/student-login" element={<StudentLogin />} />
 
-  <Route path="/doctor-dashboard" element={<DoctorDashboard />} />
+        <Route path="/doctor-dashboard" element={<DoctorDashboard />} />
 
-  <Route path="/doctor-login" element={<DoctorLogin />} />
-  <Route path="/student-register" element={<StudentRegister />} />
-  <Route
-  path="/student-dashboard"
-  element={<StudentDashboard />}
-/>
-</Routes>
+        <Route path="/doctor-login" element={<DoctorLogin />} />
+        <Route path="/student-register" element={<StudentRegister />} />
+        <Route
+          path="/student-dashboard"
+          element={<StudentDashboard />}
+        />
+        <Route
+          path="/student-doctors"
+          element={<DoctorSelection />}
+        />
+      </Routes>
     </BrowserRouter>
   );
 }
