@@ -5,6 +5,7 @@ import DoctorDashboard from './pages/DoctorDashboard.jsx';
 import DoctorLogin from './pages/DoctorLogin.jsx';
 import StudentLogin from './pages/StudentLogin.jsx';
 import StudentRegister from './pages/StudentRegister.jsx';
+import StudentDashboard from './pages/StudentDashboard.jsx';
 import './App.css';
 
 
@@ -317,6 +318,10 @@ function App() {
 
   <Route path="/doctor-login" element={<DoctorLogin />} />
   <Route path="/student-register" element={<StudentRegister />} />
+  <Route
+  path="/student-dashboard"
+  element={<StudentDashboard />}
+/>
 </Routes>
     </BrowserRouter>
   );

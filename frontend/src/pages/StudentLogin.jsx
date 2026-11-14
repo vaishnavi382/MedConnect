@@ -21,16 +21,14 @@ function StudentLogin() {
     };
 
     if (
-      email.trim().toLowerCase() === demoStudent.email &&
-      password === demoStudent.password
-    ) {
-      alert('Student login successful!');
-      
-      // Next step: Navigate to Student Dashboard
-      // navigate('/student-dashboard');
-    } else {
-      alert('Invalid email or password. Please try again.');
-    }
+  email.trim().toLowerCase() === demoStudent.email &&
+  password === demoStudent.password
+) {
+  alert('Student login successful!');
+  navigate('/student-dashboard');
+} else {
+  alert('Invalid email or password. Please try again.');
+}
   }
 
   return (
