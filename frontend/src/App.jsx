@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import DoctorDashboard from './pages/DoctorDashboard.jsx';
 import DoctorLogin from './pages/DoctorLogin.jsx';
 import StudentLogin from './pages/StudentLogin.jsx';
@@ -10,6 +10,12 @@ import DoctorSelection from './pages/DoctorSelection.jsx';
 import AppointmentBooking from './pages/AppointmentBooking.jsx';
 import AppointmentConfirmation from './pages/AppointmentConfirmation.jsx';
 import TokenGeneration from './pages/TokenGeneration.jsx';
+import MyAppointments from './pages/MyAppointments.jsx';
+import AdminDashboard from './pages/AdminDashboard.jsx';
+import AdminDoctors from './pages/AdminDoctors.jsx';
+import AdminStudents from './pages/AdminStudents.jsx';
+import AdminAppointments from './pages/AdminAppointments.jsx';
+import AdminLogin from './pages/AdminLogin.jsx';
 import './App.css';
 
 
@@ -309,7 +315,14 @@ function HomePage() {
     </div>
   );
 }
+function AdminRoute({ children }) {
+    const isAdminLoggedIn =
+        localStorage.getItem('adminLoggedIn') === 'true';
 
+    return isAdminLoggedIn
+        ? children
+        : <Navigate to="/admin-login" replace />;
+}
 function App() {
   return (
     <BrowserRouter>
@@ -342,6 +355,43 @@ function App() {
   path="/token-generation"
   element={<TokenGeneration />}
 />
+<Route path="/my-appointments" element={<MyAppointments />} />
+<Route
+    path="/admin-dashboard"
+    element={
+        <AdminRoute>
+            <AdminDashboard />
+        </AdminRoute>
+    }
+/>
+
+<Route
+    path="/admin-doctors"
+    element={
+        <AdminRoute>
+            <AdminDoctors />
+        </AdminRoute>
+    }
+/>
+
+<Route
+    path="/admin-students"
+    element={
+        <AdminRoute>
+            <AdminStudents />
+        </AdminRoute>
+    }
+/>
+
+<Route
+    path="/admin-appointments"
+    element={
+        <AdminRoute>
+            <AdminAppointments />
+        </AdminRoute>
+    }
+/>
+<Route path="/admin-login" element={<AdminLogin />} />
       </Routes>
     </BrowserRouter>
   );

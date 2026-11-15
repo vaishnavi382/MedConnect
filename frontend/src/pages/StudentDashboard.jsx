@@ -64,7 +64,7 @@ function StudentDashboard() {
 
                     <button
                         className={activeSection === 'My Appointments' ? 'active' : ''}
-                        onClick={() => setActiveSection('My Appointments')}
+                        onClick={() => navigate('/my-appointments')}
                     >
                         <span>▣</span> My Appointments
                     </button>
@@ -168,7 +168,7 @@ function StudentDashboard() {
                                 </button>
 
                                 <button
-                                    onClick={() => navigate('/student-doctors')}
+                                    onClick={() => navigate('/my-appointments')}
                                 >
                                     ▣ View My Appointments →
                                 </button>
@@ -192,13 +192,6 @@ function StudentDashboard() {
                     <section className="student-placeholder-section">
                         <h2>Find Doctors</h2>
                         <p>Doctor selection feature will be added in the next step.</p>
-                    </section>
-                )}
-
-                {activeSection === 'My Appointments' && (
-                    <section className="student-placeholder-section">
-                        <h2>My Appointments</h2>
-                        <p>Your appointments will appear here.</p>
                     </section>
                 )}
 

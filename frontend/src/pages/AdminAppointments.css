@@ -1,0 +1,158 @@
+
+.admin-appointments-page {
+    min-height: 100vh;
+    padding: 40px;
+    background: #f4f8fc;
+    font-family: Arial, sans-serif;
+}
+
+.admin-appointments-header {
+    margin-bottom: 30px;
+}
+
+.admin-appointments-header h1 {
+    color: #173b67;
+    font-size: 28px;
+    margin-bottom: 8px;
+}
+
+.admin-appointments-header p {
+    color: #64748b;
+    font-size: 15px;
+}
+
+.appointments-count {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 18px;
+    margin-bottom: 25px;
+}
+
+.appointments-count > div {
+    background: white;
+    padding: 22px;
+    border-radius: 10px;
+    border: 1px solid #e5edf5;
+}
+
+.appointments-count h3 {
+    color: #2563eb;
+    font-size: 26px;
+    margin-bottom: 7px;
+}
+
+.appointments-count p {
+    color: #64748b;
+    font-size: 14px;
+}
+
+.appointment-search {
+    margin-bottom: 25px;
+}
+
+.appointment-search input {
+    width: 100%;
+    max-width: 450px;
+    padding: 13px 16px;
+    border: 1px solid #dbe4ef;
+    border-radius: 8px;
+    font-size: 14px;
+    outline: none;
+}
+
+.appointment-search input:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.admin-appointments-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.admin-appointment-card {
+    background: white;
+    padding: 24px;
+    border-radius: 12px;
+    border: 1px solid #e5edf5;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.05);
+}
+
+.appointment-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 18px;
+}
+
+.appointment-card-header h3 {
+    color: #173b67;
+    font-size: 18px;
+    margin-bottom: 7px;
+}
+
+.appointment-card-header p {
+    color: #64748b;
+    font-size: 14px;
+}
+
+.appointment-status {
+    padding: 6px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.appointment-status.confirmed {
+    background: #dcfce7;
+    color: #15803d;
+}
+
+.appointment-status.cancelled {
+    background: #fee2e2;
+    color: #dc2626;
+}
+
+.appointment-details {
+    border-top: 1px solid #e5edf5;
+    padding-top: 15px;
+}
+
+.appointment-details p {
+    color: #475569;
+    font-size: 14px;
+    margin-bottom: 11px;
+    overflow-wrap: anywhere;
+}
+
+.appointment-details strong {
+    color: #173b67;
+}
+
+.cancel-appointment-btn {
+    margin-top: 12px;
+    padding: 11px 16px;
+    background: #fee2e2;
+    color: #dc2626;
+    border: none;
+    border-radius: 7px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.cancel-appointment-btn:hover {
+    background: #fecaca;
+}
+
+.no-appointments {
+    color: #64748b;
+    padding: 20px;
+}
+
+@media (max-width: 600px) {
+    .admin-appointments-page {
+        padding: 22px 15px;
+    }
+}
