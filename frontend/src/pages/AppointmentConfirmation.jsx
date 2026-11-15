@@ -118,11 +118,20 @@ function AppointmentConfirmation() {
           </button>
         ) : (
           <button
-            className="final-confirm-btn"
-            onClick={() => navigate('/student-dashboard')}
-          >
-            Back to Student Dashboard
-          </button>
+  className="final-confirm-btn"
+  onClick={() =>
+    navigate('/token-generation', {
+      state: {
+        doctor,
+        appointmentDate,
+        selectedSlot,
+        appointmentId
+      }
+    })
+  }
+>
+  Generate Appointment Token
+</button>
         )}
 
       </div>

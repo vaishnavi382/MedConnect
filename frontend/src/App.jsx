@@ -9,6 +9,7 @@ import StudentDashboard from './pages/StudentDashboard.jsx';
 import DoctorSelection from './pages/DoctorSelection.jsx';
 import AppointmentBooking from './pages/AppointmentBooking.jsx';
 import AppointmentConfirmation from './pages/AppointmentConfirmation.jsx';
+import TokenGeneration from './pages/TokenGeneration.jsx';
 import './App.css';
 
 
@@ -336,6 +337,10 @@ function App() {
 <Route
   path="/appointment-confirmation"
   element={<AppointmentConfirmation />}
+/>
+<Route
+  path="/token-generation"
+  element={<TokenGeneration />}
 />
       </Routes>
     </BrowserRouter>
