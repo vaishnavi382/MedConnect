@@ -7,6 +7,8 @@ import StudentLogin from './pages/StudentLogin.jsx';
 import StudentRegister from './pages/StudentRegister.jsx';
 import StudentDashboard from './pages/StudentDashboard.jsx';
 import DoctorSelection from './pages/DoctorSelection.jsx';
+import AppointmentBooking from './pages/AppointmentBooking.jsx';
+import AppointmentConfirmation from './pages/AppointmentConfirmation.jsx';
 import './App.css';
 
 
@@ -327,6 +329,14 @@ function App() {
           path="/student-doctors"
           element={<DoctorSelection />}
         />
+        <Route
+  path="/book-appointment"
+  element={<AppointmentBooking />}
+/>
+<Route
+  path="/appointment-confirmation"
+  element={<AppointmentConfirmation />}
+/>
       </Routes>
     </BrowserRouter>
   );
