@@ -6,6 +6,8 @@ const cors = require("cors");
 const connectDB = require("./config/db");
 const studentRoutes = require("./routes/studentRoutes");
 const healthRoutes = require("./routes/healthRoutes");
+const doctorRoutes = require("./routes/doctorRoutes");
+
 
 const app = express();
 
@@ -14,6 +16,7 @@ app.use(express.json());
 
 app.use("/api/students", studentRoutes);
 app.use("/api/health", healthRoutes);
+app.use("/api/doctors", doctorRoutes);
 
 app.get("/", (req, res) => {
     res.send("MedConnect Backend is running");
