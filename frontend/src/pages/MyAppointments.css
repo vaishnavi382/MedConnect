@@ -1,0 +1,144 @@
+
+.my-appointments-page {
+    min-height: 100vh;
+    padding: 40px;
+    background: #f4f8fc;
+    font-family: Arial, sans-serif;
+}
+
+.my-appointments-page h1 {
+    color: #173b67;
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+.my-appointments-page > p {
+    color: #64748b;
+    font-size: 16px;
+    margin-bottom: 30px;
+}
+
+/* Empty appointments section */
+.no-appointments {
+    background: white;
+    padding: 50px 25px;
+    text-align: center;
+    border-radius: 14px;
+    max-width: 650px;
+    margin: 40px auto;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+}
+
+.empty-icon {
+    font-size: 55px;
+    margin-bottom: 15px;
+}
+
+.no-appointments h2 {
+    color: #173b67;
+    margin-bottom: 12px;
+}
+
+.no-appointments p {
+    color: #64748b;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+.no-appointments button {
+    background: #2563eb;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.no-appointments button:hover {
+    background: #1d4ed8;
+}
+
+/* Appointment cards */
+.appointments-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 22px;
+}
+
+.appointment-card {
+    background: white;
+    padding: 25px;
+    border-radius: 14px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+    border: 1px solid #e5edf5;
+}
+
+.appointment-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 12px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #e5edf5;
+}
+
+.appointment-card-header h2 {
+    color: #173b67;
+    font-size: 19px;
+    margin-bottom: 7px;
+}
+
+.appointment-card-header p {
+    color: #64748b;
+    font-size: 14px;
+}
+
+.appointment-status {
+    background: #dcfce7;
+    color: #15803d;
+    padding: 7px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.appointment-card-details {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 22px 15px;
+    padding-top: 22px;
+}
+
+.appointment-card-details div {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    min-width: 0;
+}
+
+.appointment-card-details span {
+    color: #64748b;
+    font-size: 13px;
+}
+
+.appointment-card-details strong {
+    color: #173b67;
+    font-size: 14px;
+    overflow-wrap: anywhere;
+}
+
+/* Responsive design */
+@media (max-width: 600px) {
+    .my-appointments-page {
+        padding: 25px 15px;
+    }
+
+    .appointment-card {
+        padding: 18px;
+    }
+
+    .appointment-card-header {
+        flex-direction: column;
+    }
+}
